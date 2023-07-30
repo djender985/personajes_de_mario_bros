@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
 {% block contenido %}
-<h1>Lista de estudiantes</h1>
-<a href="{% url 'crear_bueno' %}">Crear entrada para personaje bueno </a>
+<h3>Lista de personajes buenos</h3>
+<a href="{% url 'lista_buenos' %}">Ver todos</a>
+<a href="{% url 'crear_bueno' %}">Crear entrada de personaje bueno</a>
+<br><br>
+<form action="{% url 'buscar_bueno' %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="busqueda">
+  <input type="submit" value="Buscar por nombre">
+</form>
 <br>
 
 <table class="table">
@@ -26,7 +33,7 @@
         <form action="{% url 'borrar_bueno' bueno.id %}" method="post">
           {% csrf_token %}
           <input type="submit" class="btn btn-link" value="borrar"/>
-        </form>        
+        </form>
       </td>
     </tr>
     {% endfor %}

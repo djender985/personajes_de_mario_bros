@@ -27,7 +27,7 @@ urlpatterns = [
     path('buscar-malo/', buscar_malo, name="buscar_malo"),
 
     #URLS de eliminar entrada
-    path('borrar-bueno', borrar_bueno, name="borrar_bueno"),
-    path('borrar-neutral', borrar_neutral, name="borrar_neutral"),
-    path('borrar-malo', borrar_malo, name="borrar_malo"),
+    path('borrar-bueno/<int:id>', borrar_bueno, name="borrar_bueno"),
+    path('borrar-neutral/<int:id>', borrar_neutral, name="borrar_neutral"),
+    path('borrar-malo/<int:id>', borrar_malo, name="borrar_malo"),
 ]

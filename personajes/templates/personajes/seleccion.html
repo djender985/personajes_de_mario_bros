@@ -1,10 +1,24 @@
 {% extends "inicio.html" %}
 
-{% block solo_bienvenida %}
-    <h1 class="mb-5">Seleccione la naturaleza de los personajes:</h1>                                   
-    <div class="container">
-        <a class="btn btn-success" href="{% url 'lista_buenos' %}">BUENOS</a>
-        <a class="btn btn-warning" href="{% url 'lista_neutrales' %}">NEUTRALES</a>
-        <a class="btn btn-danger" href="{% url 'lista_malos' %}">MALOS</a>        
+
+<header class="masthead" style="background-image: url('static/assets/img/mario.jpg');">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    {% block solo_bienvenida %}
+                    <h1 class="mb-5">Seleccione la naturaleza de los personajes:</h1>                                   
+                    <div class="container">
+                        <a class="btn btn-success" href="{% url 'lista_buenos' %}">BUENOS</a>
+                        <a class="btn btn-warning" href="{% url 'lista_neutrales' %}">NEUTRALES</a>
+                        <a class="btn btn-danger" href="{% url 'lista_malos' %}">MALOS</a>        
+                    </div>
+                    {% endblock solo_bienvenida %}
+                </div>
+            </div>
+        </div>
     </div>
-{% endblock solo_bienvenida %}
+</header>
+
+

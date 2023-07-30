@@ -82,7 +82,7 @@ def buscar_bueno(request):
         # Filtro simple
         bueno = Bueno.objects.filter(nombre__contains=busqueda)        
         contexto = {
-            "buenos": buenos,
+            "buenos": bueno,
         }
         http_response = render(
             request=request,
@@ -98,7 +98,7 @@ def buscar_neutral(request):
         # Filtro simple
         neutral = Neutral.objects.filter(nombre__contains=busqueda)        
         contexto = {
-            "neutrales": neutrales,
+            "neutrales": neutral,
         }
         http_response = render(
             request=request,
@@ -114,7 +114,7 @@ def buscar_malo(request):
         # Filtro simple
         malo = Malo.objects.filter(nombre__contains=busqueda)        
         contexto = {
-            "malos": malos,
+            "malos": malo,
         }
         http_response = render(
             request=request,
@@ -122,21 +122,6 @@ def buscar_malo(request):
             context=contexto,
         )
         return http_response
-
-"""
-class BuenoDetailView(DetailView):
-    model = Bueno
-    success_url = reverse_lazy('lista_buenos')
-
-class NeutralDetailView(DetailView):
-    model = Neutral
-    success_url = reverse_lazy('lista_neutrales')
-  
-class MaloDetailView(DetailView):
-    model = Malo
-    success_url = reverse_lazy('lista_malos')
-"""
-
 
 #VISTAS DE CREAR ENTRADAS
 def crear_bueno(request):
@@ -209,7 +194,7 @@ def crear_malo(request):
             malo.save()
 
             # Redirecciono al usuario a la lista de cursos
-            url_exitosa = reverse('lista_neutrales')  # estudios/cursos/
+            url_exitosa = reverse('lista_malos')  # estudios/cursos/
             return redirect(url_exitosa)
     else:  # GET
         formulario = MaloFormulario()
@@ -219,24 +204,6 @@ def crear_malo(request):
         context={'formulario': formulario}
     )
     return http_response
-
-"""    
-class BuenoCreateView(CreateView):
-    model = Bueno
-    fields = ('nombre', 'sexo', 'bio')
-    success_url = reverse_lazy('lista_buenos')
-
-class NeutralCreateView(CreateView):
-    model = Neutral
-    fields = ('nombre', 'sexo', 'bio')
-    success_url = reverse_lazy('lista_neutrales')
-
-class MaloCreateView(CreateView):
-    model = Malo
-    fields = ('nombre', 'sexo', 'bio')
-    success_url = reverse_lazy('lista_malos')
-"""
-
 
 #VISTAS DE ELIMINAR ENTRADA
 def borrar_bueno(request, id):
@@ -252,7 +219,7 @@ def borrar_bueno(request, id):
 
 def borrar_neutral(request, id):
     # obtienes el curso de la base de datos
-    neutral = Nuetral.objects.get(id=id)
+    neutral = Neutral.objects.get(id=id)
     if request.method == "POST":
         # borra el curso de la base de datos
         neutral.delete()
@@ -269,17 +236,3 @@ def borrar_malo(request, id):
         # redireccionamos a la URL exitosa
         url_exitosa = reverse('lista_malos')
         return redirect(url_exitosa)
-        
-"""
-class BuenoDeleteView(DeleteView):
-    model = Bueno
-    success_url = reverse_lazy('lista_buenos')
-
-class NeutralDeleteView(DeleteView):
-    model = Neutral
-    success_url = reverse_lazy('lista_neutrales')
-
-class MaloDeleteView(DeleteView):
-    model = Malo
-    success_url = reverse_lazy('lista_malos')
-"""

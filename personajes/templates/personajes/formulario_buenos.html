@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block contenido %}
+<h3>Nuevo personaje bueno</h3>
 <form method="post">
   {% csrf_token %}
   {{ formulario.as_p }}
