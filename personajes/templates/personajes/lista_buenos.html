@@ -2,12 +2,13 @@
 
 {% block contenido %}
 <h1>Lista de Buenos:</h1>
-<a href="{% url 'bueno_creado' %}">Crear entrada de personaje bueno</a>
+<a href="{% url 'crear_bueno' %}">Crear entrada de personaje bueno</a>
 <br>
 
 <table class="table">
   <tbody>
     <tr>
+      <th>ID</th>
       <th>Nombre</th>
       <th>Sexo</th>
       <th>Bio</th>
@@ -17,14 +18,12 @@
     </tr>
     {% for bueno in buenos %}
     <tr>
+      <td>{{ bueno.id }}</td>
       <td>{{ bueno.nombre }}</td>
       <td>{{ bueno.sexo }}</td>
-      <td>{{ bueno.bio }}</td>      
-      <td>
-        <a href="{% url 'busqueda_bueno' bueno.id %}">Ver</a>
-      </td>
-      <td>        
-        <a href="{% url 'bueno_eliminado' bueno.id %}">
+      <td>{{ bueno.bio }}</td>
+      <td>       
+        <a href="{% url 'eliminar_bueno' bueno.id %}">
           <i class="bi bi-trash"></i>
         </a>
       </td>
