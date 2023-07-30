@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<h3>Buenos:</h3>
+
+<br><br>
+<form action="{% url 'buscar_bueno' %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="busqueda">
+  </form>
+<br>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Nombre</th>
+      <th>Anime</th>
+      <th>Bio</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for bueno in buenos %}
+    <tr>
+      <td>{{ bueno.nombre }}</td>
+      <td>{{ bueno.anime }}</td>
+      <td>{{ bueno.bio }}</td>      
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido %}
