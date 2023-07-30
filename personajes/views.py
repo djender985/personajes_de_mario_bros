@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.db.models import Q
@@ -19,7 +19,7 @@ def seleccionar (request):
 def sel_buenos (request):
     respuesta_http= render(
         request=request,
-        template_name='personajes/buenos.html',
+        template_name='personajes/lista_buenos.html',
         context={},
     )
     return respuesta_http
@@ -27,7 +27,7 @@ def sel_buenos (request):
 def sel_neutrales (request):
     respuesta_http= render(
         request=request,
-        template_name='personajes/neutrales.html',
+        template_name='personajes/lista_neutrales.html',
         context={},
     )
     return respuesta_http
@@ -35,7 +35,7 @@ def sel_neutrales (request):
 def sel_malos (request):
     respuesta_http= render(
         request=request,
-        template_name='personajes/malos.html',
+        template_name='personajes/lista_malos.html',
         context={},
     )
     return respuesta_http

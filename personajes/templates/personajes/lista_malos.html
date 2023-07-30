@@ -1,1 +1,32 @@
 {% extends "base.html" %}
+
+{% block contenido %}
+<h1>Lista de estudiantes</h1>
+<a href="{% url 'crear_malo' %}">Crear entrada para personaje malo </a>
+<br>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Sexo</th>
+      <th>Bio</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% for malo in malos %}
+    <tr>
+      <td>{{ malo.id }}</td>
+      <td>{{ malo.nombre }}</td>
+      <td>{{ malo.sexo }}</td>
+      <td>{{ malo.bio }}</td>       
+      <td>        
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido %}

@@ -1,1 +1,33 @@
 {% extends "base.html" %}
+
+{% block contenido %}
+<h1>Lista de estudiantes</h1>
+<a href="{% url 'crear_neutral' %}">Crear entrada para personaje neutral </a>
+<br>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Sexo</th>
+      <th>Bio</th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% for neutral in neutrales %}
+    <tr>
+      <td>{{ neutral.id }}</td>
+      <td>{{ neutral.nombre }}</td>
+      <td>{{ neutral.sexo }}</td>
+      <td>{{ neutral.bio }}</td>       
+      <td>        
+        
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido %}

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block contenido %}
-<h1>Lista de Buenos:</h1>
-<a href="{% url 'crear_bueno' %}">Crear entrada de personaje bueno</a>
+<h1>Lista de estudiantes</h1>
+<a href="{% url 'crear_bueno' %}">Crear entrada para personaje bueno </a>
 <br>
 
 <table class="table">
@@ -21,11 +21,12 @@
       <td>{{ bueno.id }}</td>
       <td>{{ bueno.nombre }}</td>
       <td>{{ bueno.sexo }}</td>
-      <td>{{ bueno.bio }}</td>
-      <td>       
-        <a href="{% url 'eliminar_bueno' bueno.id %}">
-          <i class="bi bi-trash"></i>
-        </a>
+      <td>{{ bueno.bio }}</td>       
+      <td>
+        <form action="{% url 'borrar_bueno' bueno.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-link" value="borrar"/>
+        </form>        
       </td>
     </tr>
     {% endfor %}
