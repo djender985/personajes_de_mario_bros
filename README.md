@@ -33,7 +33,7 @@ N/A
 Comenzar en la URL raiz "/" y seguir el flujo normal de navegacion hasta probar las diferentes posibilidades que ofrece el sitio web.
 
 # Cosas que se pueden hacer
-+Crear registros de personajes buenos, neutrales o malos
-+Buscar algun personaje en las bases de datos de cada naturaleza
-+Borrar registros de personajes en cada una de las naturalezas
-+Volver a ver la lista completa de cada naturaleza luego de hacer una busqueda
++ Crear registros de personajes buenos, neutrales o malos
++ Buscar algun personaje en las bases de datos de cada naturaleza
++ Borrar registros de personajes en cada una de las naturalezas
++ Volver a ver la lista completa de cada naturaleza luego de hacer una busqueda
